@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+@theme {
+  --color-primary: #5044E5;
+}
+
+/* Text shadow effects */
+.text-hero-shadow {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.text-subtle-shadow {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typewriter animation */
+@keyframes typing {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: #6b7280;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+.typewriter {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid #6b7280;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(20) forwards, blink 0.5s steps(20) 4;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
