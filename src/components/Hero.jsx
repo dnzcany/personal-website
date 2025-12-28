@@ -1,4 +1,5 @@
 import Me from "../assets/me1.png"
+import { motion } from "framer-motion"
 
 const Hero = () => {
   return (
@@ -7,7 +8,13 @@ const Hero = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-          <div className="relative lg:left-[-40px]">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative lg:left-[-40px]"
+          >
 
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 text-hero-shadow animate-[fadeIn_0.8s_ease-out]">
               Deniz Can YILDIZ
@@ -50,9 +57,15 @@ const Hero = () => {
                 Get in touch →
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative flex justify-center lg:justify-end animate-[fadeIn_0.8s_ease-out_0.3s_both]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end animate-[fadeIn_0.8s_ease-out_0.3s_both]"
+          >
 
             <div className="absolute w-[340px] h-[340px] rounded-full bg-gray-100 blur-3xl opacity-60" />
 
@@ -77,7 +90,7 @@ const Hero = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

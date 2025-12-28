@@ -3,6 +3,8 @@ import { HiExternalLink } from 'react-icons/hi'
 import project1 from '../assets/project1.png'
 import project22 from '../assets/project22.png'
 import project3 from '../assets/project3.png'
+import project4 from '../assets/project4.png'
+import { motion } from 'framer-motion'
 
 const Projects = () => {
   const projects = [
@@ -23,6 +25,14 @@ const Projects = () => {
       tags: ["Kotlin", "Java", "MVVM", "RoomDatabase", "Coroutines"]
     },
     {
+      title: "WithAI - AI Content Creation Platform",
+      description: "A full-stack SaaS application with AI-powered content generation, user authentication, subscription management, and usage tracking. Built with React and Express.js, featuring PostgreSQL database and deployed on Vercel.",
+      image: project4,
+      github: "https://github.com/dnzcany/with-ai",
+      liveUrl: "https://with-ai-iota.vercel.app/",
+      tags: ["React", "Express.js", "PostgreSQL", "AI Integration", "SaaS"]
+    },
+    {
       title: "PDF AI Chat",
       description: "A local, privacy-first PDF chat assistant that lets you query and interact with your documents using AI. Built with Retrieval-Augmented Generation (RAG), it works completely offline with no external data sharing.",
       image: project3,
@@ -36,7 +46,13 @@ const Projects = () => {
     <section id="projects" className="py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
           <p className="text-sm font-semibold text-gray-500 mb-2 tracking-wider">PORTFOLIO</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Featured Projects
@@ -44,17 +60,27 @@ const Projects = () => {
           <p className="text-lg text-gray-600 max-w-2xl">
             A selection of projects I've worked on, showcasing my skills in full-stack development and AI integration.
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-24">
           {projects.map((project, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: idx * 0.1 }}
               className={`grid lg:grid-cols-2 gap-12 items-center ${
                 idx % 2 === 1 ? 'lg:grid-flow-dense' : ''
               }`}
             >
-              <div className={`relative group ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+              <motion.div
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className={`relative group ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}
+              >
                 <div className="relative overflow-hidden rounded-2xl bg-gray-200 aspect-3/2 border border-gray-300 shadow-xl group-hover:shadow-2xl transition-all duration-500">
                   <img
                     src={project.image}
@@ -96,9 +122,15 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className={idx % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+              <motion.div
+                initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className={idx % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}
+              >
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">
                   {project.title}
                 </h3>
@@ -153,8 +185,8 @@ const Projects = () => {
                     </a>
                   )}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 

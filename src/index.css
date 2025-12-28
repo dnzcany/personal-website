@@ -5,6 +5,11 @@
   font-family: "Outfit", sans-serif;
 }
 
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --color-primary: #5044E5;
 }

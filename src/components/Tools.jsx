@@ -1,11 +1,12 @@
 import {
   SiPython, SiTypescript, SiJavascript, SiKotlin,
-  SiReact, SiNextdotjs, SiNodedotjs, SiFastapi, SiAndroid, SiFirebase, SiElectron,
+  SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiFastapi, SiAndroid, SiFirebase, SiElectron,
   SiDocker, SiGithub, SiPostgresql, SiMysql, SiMongodb,
   SiOpenai
 } from 'react-icons/si'
 import { TbApi, TbDatabase, TbBrain, TbCloudComputing } from 'react-icons/tb'
 import { FaJava } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 const Tools = () => {
   const skillCategories = [
@@ -26,6 +27,7 @@ const Tools = () => {
         { name: "React", icon: SiReact, desc: "Building interactive UIs", color: "text-cyan-500" },
         { name: "Next.js", icon: SiNextdotjs, desc: "React framework for production", color: "text-black" },
         { name: "Node.js", icon: SiNodedotjs, desc: "JavaScript runtime for servers", color: "text-green-600" },
+        { name: "Express.js", icon: SiExpress, desc: "Fast Node.js web framework", color: "text-gray-700" },
         { name: "FastAPI", icon: SiFastapi, desc: "Modern Python web framework", color: "text-teal-600" },
         { name: "Android SDK", icon: SiAndroid, desc: "Native Android development", color: "text-green-500" },
         { name: "Firebase", icon: SiFirebase, desc: "Backend-as-a-Service platform", color: "text-yellow-600" },
@@ -60,16 +62,28 @@ const Tools = () => {
     <section id="tools" className="py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
           <p className="text-sm font-semibold text-gray-500 mb-2 tracking-wider">TECH STACK</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             What I Use
           </h2>
-        </div>
+        </motion.div>
 
         <div className="space-y-16">
           {skillCategories.map((category, catIdx) => (
-            <div key={catIdx}>
+            <motion.div
+              key={catIdx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: catIdx * 0.1 }}
+            >
               <h3 className="text-xs font-bold text-gray-500 mb-8 tracking-wider">
                 {category.title}
               </h3>
@@ -78,8 +92,12 @@ const Tools = () => {
                 {category.skills.map((skill, skillIdx) => {
                   const Icon = skill.icon
                   return (
-                    <div
+                    <motion.div
                       key={skillIdx}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: skillIdx * 0.05 }}
                       className="group flex items-start gap-4 p-4 rounded-2xl border border-gray-200
                                  hover:border-gray-300 hover:shadow-md transition-all duration-300
                                  cursor-pointer hover:-translate-y-1"
@@ -97,11 +115,11 @@ const Tools = () => {
                           {skill.desc}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   )
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
