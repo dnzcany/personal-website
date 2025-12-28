@@ -25,7 +25,7 @@ const HowtoReach = () => {
   }
 
   return (
-    <section id="contact" className="py-32 bg-white relative overflow-hidden">
+    <section id="contact" className="pt-32 pb-0 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         <motion.div
@@ -190,14 +190,17 @@ const HowtoReach = () => {
 
         </div>
 
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 pt-8 border-t border-gray-200"
-        >
+      </div>
+
+      {/* Footer */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="w-full mt-12 pt-6 pb-6 border-t border-gray-200 bg-white"
+      >
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
               © 2025 Deniz Can YILDIZ. All rights reserved.
@@ -223,9 +226,8 @@ const HowtoReach = () => {
               </a>
             </div>
           </div>
-        </motion.div>
-
-      </div>
+        </div>
+      </motion.div>
     </section>
   )
 }
